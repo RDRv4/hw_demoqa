@@ -1,16 +1,19 @@
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.selector.ByText;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
 
 import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class LoginPageTest {
 
     @BeforeAll
     static void beforeAll() {
+        Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
     }
 
@@ -27,20 +30,20 @@ public class LoginPageTest {
         String currentAddress = "Bogdanovicha 6";
 
         //open form for testing
-        open("https://demoqa.com/automation-practice-form");
+        open("/automation-practice-form");
 
         //enter all values
         $("#firstName").setValue(firstName);
         $("#lastName").setValue(lastName);
         $("#userEmail").setValue(userEmail);
-        $(".custom-control-label").click();
+        $("#genterWrapper").$(byText("Other")).click();
         $("#userNumber").setValue(userNumber);
         $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").selectOption(6);
+        $(".react-datepicker__month-select").selectOption("July");
         $("[aria-label='Choose Saturday, July 5th, 2025']").click();
         $(".subjects-auto-complete__value-container").click();
-        $(".subjects-auto-complete__value-container input").setValue("e").pressEnter();
-        $$(".custom-control-label").get(4).click();
+        $("#subjectsContainer input").setValue("english").pressEnter();
+        $("#hobbiesWrapper").$(byText("Sports")).click();
         $("#uploadPicture").uploadFile(address);
         $("#currentAddress").setValue(currentAddress);
 
