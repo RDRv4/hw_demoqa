@@ -44,6 +44,10 @@ public class LoginPageTest {
         $("#uploadPicture").uploadFile(address);
         $("#currentAddress").setValue(currentAddress);
 
+        //added JS for remove banner
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
+
         //enter submit button
         $("#submit").shouldBe(visible, enabled).click();
 
