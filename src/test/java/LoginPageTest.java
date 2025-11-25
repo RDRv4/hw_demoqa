@@ -20,7 +20,7 @@ public class LoginPageTest {
         String firstName = "Denis";
         String lastName = "Rudovich";
         String userEmail = "d.rudovich@gmail.com";
-        String userNumber = "чччччч";
+        String userNumber = "445856566";
         File address = new File(
                 "C:\\Users\\Lenovo\\OneDrive\\Desktop\\календарь\\Coat_of_Arms_of_Łuniniec,_Belarus.svg.png");
         String currentAddress = "Bogdanovicha 6";
