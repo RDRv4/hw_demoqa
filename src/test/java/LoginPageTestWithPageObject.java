@@ -1,14 +1,16 @@
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import pages.components.LoginPage;
 
 import java.io.File;
 
 import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class LoginPageTest {
+public class LoginPageTestWithPageObject {
 
     @BeforeAll
     static void beforeAll() {
@@ -27,13 +29,14 @@ public class LoginPageTest {
                 "C:\\Users\\Lenovo\\OneDrive\\Desktop\\календарь\\Coat_of_Arms_of_Łuniniec,_Belarus.svg.png");
         String currentAddress = "Bogdanovicha 6";
 
-        //open form for testing
-        open("/automation-practice-form");
+        LoginPage loginPage = new LoginPage();
+        loginPage.openPage();
 
-        //enter all values
-        $("#firstName").setValue(firstName);
-        $("#lastName").setValue(lastName);
-        $("#userEmail").setValue(userEmail);
+        loginPage.setFirstNameInput(firstName);
+        loginPage.setLastNameInput(lastName);
+        loginPage.setUserEmailInput(userEmail);
+
+
         $("#genterWrapper").$(byText("Other")).click();
         $("#userNumber").setValue(userNumber);
         $("#dateOfBirthInput").click();
@@ -45,10 +48,6 @@ public class LoginPageTest {
         $("#uploadPicture").uploadFile(address);
         $("#currentAddress").setValue(currentAddress);
 
-        //added JS for remove banner
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
-
         //enter submit button
         $("#submit").shouldBe(visible, enabled).click();
 
@@ -59,4 +58,5 @@ public class LoginPageTest {
         //sleep for 2ms
         sleep(2000);
     }
+
 }
