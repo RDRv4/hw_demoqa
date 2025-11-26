@@ -7,7 +7,6 @@ import java.io.File;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class LoginPageTestWithPageObject {
@@ -24,9 +23,12 @@ public class LoginPageTestWithPageObject {
         String firstName = "Denis";
         String lastName = "Rudovich";
         String userEmail = "d.rudovich@gmail.com";
+        String genterWrapper = "Other";
         String userNumber = "375445856568";
-        File address = new File(
-                "C:\\Users\\Lenovo\\OneDrive\\Desktop\\календарь\\Coat_of_Arms_of_Łuniniec,_Belarus.svg.png");
+        String hobbiesWrapper = "Sports";
+
+        File file = new File(
+                "src/test/resources/IMG_8298.jpg");
         String currentAddress = "Bogdanovicha 6";
 
         LoginPage loginPage = new LoginPage();
@@ -35,18 +37,17 @@ public class LoginPageTestWithPageObject {
         loginPage.setFirstNameInput(firstName);
         loginPage.setLastNameInput(lastName);
         loginPage.setUserEmailInput(userEmail);
+        loginPage.setGenterWrapperInput(genterWrapper);
+        loginPage.setUserNumberInput(userNumber);
+        loginPage.setHobbiesWrapperInput(hobbiesWrapper);
+        loginPage.setUploadPicture(file);
+        loginPage.setCurrentAddress(currentAddress);
 
-
-        $("#genterWrapper").$(byText("Other")).click();
-        $("#userNumber").setValue(userNumber);
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption("July");
         $("[aria-label='Choose Saturday, July 5th, 2025']").click();
         $(".subjects-auto-complete__value-container").click();
         $("#subjectsContainer input").setValue("english").pressEnter();
-        $("#hobbiesWrapper").$(byText("Sports")).click();
-        $("#uploadPicture").uploadFile(address);
-        $("#currentAddress").setValue(currentAddress);
 
         //enter submit button
         $("#submit").shouldBe(visible, enabled).click();
