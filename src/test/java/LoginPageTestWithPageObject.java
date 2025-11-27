@@ -1,5 +1,3 @@
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import pages.components.LoginPage;
 
@@ -9,13 +7,7 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
-public class LoginPageTestWithPageObject {
-
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1920x1080";
-    }
+public class LoginPageTestWithPageObject extends TestBase {
 
     @Test
     void successfulLoginPage() {
