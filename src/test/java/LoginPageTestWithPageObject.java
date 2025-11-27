@@ -1,4 +1,4 @@
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import pages.components.LoginPage;
 
 import java.io.File;
@@ -9,7 +9,11 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class LoginPageTestWithPageObject extends TestBase {
 
+
+    //@Disabled
+    @DisplayName("Login page on /automation-practice-form")
     @Test
+    @Tags({@Tag("UI_TEST")})
     void successfulLoginPage() {
 
         String firstName = "Denis";
