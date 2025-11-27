@@ -67,9 +67,7 @@ public class LoginPage {
 
     }
 
-    public LoginPage setCurrentAddress(String value) {
+    public void setCurrentAddress(String value) {
         currentAddress.setValue(value);
-        return this;
-
     }
 }
