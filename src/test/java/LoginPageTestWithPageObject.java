@@ -18,9 +18,7 @@ public class LoginPageTestWithPageObject extends TestBase {
         String genterWrapper = "Other";
         String userNumber = "375445856568";
         String hobbiesWrapper = "Sports";
-
-        File file = new File(
-                "src/test/resources/IMG_8298.jpg");
+        File file = new File("src/test/resources/IMG_8298.jpg");
         String currentAddress = "Bogdanovicha 6";
 
         LoginPage loginPage = new LoginPage();
@@ -32,13 +30,10 @@ public class LoginPageTestWithPageObject extends TestBase {
                 .setUserNumberInput(userNumber)
                 .setHobbiesWrapperInput(hobbiesWrapper)
                 .setUploadPicture(file)
-                .setCurrentAddress(currentAddress);
+                .setCurrentAddress(currentAddress)
+                .setComponentalendarComponent()
+                .setSubjectsComponent();
 
-        $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").selectOption("July");
-        $("[aria-label='Choose Saturday, July 5th, 2025']").click();
-        $(".subjects-auto-complete__value-container").click();
-        $("#subjectsContainer input").setValue("english").pressEnter();
 
         //enter submit button
         $("#submit").shouldBe(visible, enabled).click();
