@@ -19,41 +19,57 @@ public class LoginPage {
     private final SelenideElement uploadPicture = $("#uploadPicture");
     private final SelenideElement currentAddress = $("#currentAddress");
 
-    public void openPage() {
+    public LoginPage openPage() {
         open("/automation-practice-form");
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
+        return this;
     }
 
-    public void setFirstNameInput(String value) {
+    public LoginPage setFirstNameInput(String value) {
         firstNameInput.setValue(value);
+        return this;
     }
 
-    public void setLastNameInput(String value) {
+    public LoginPage setLastNameInput(String value) {
         lastNameInput.setValue(value);
+        return this;
+
     }
 
-    public void setUserEmailInput(String value) {
+    public LoginPage setUserEmailInput(String value) {
         userEmailInput.setValue(value);
+        return this;
+
     }
 
-    public void setGenterWrapperInput(String value) {
+    public LoginPage setGenterWrapperInput(String value) {
         genterWrapperInput.$(byText(value)).click();
+        return this;
+
     }
 
-    public void setUserNumberInput(String value) {
+    public LoginPage setUserNumberInput(String value) {
         userNumberInput.setValue(value);
+        return this;
+
     }
 
-    public void setHobbiesWrapperInput(String value) {
+    public LoginPage setHobbiesWrapperInput(String value) {
         hobbiesWrapperInput.$(byText(value)).click();
+        return this;
+
     }
 
-    public void setUploadPicture(File file) {
+    public LoginPage setUploadPicture(File file) {
         uploadPicture.uploadFile(file);
+        return this;
+
     }
 
-    public void setCurrentAddress(String value) {
+    public LoginPage setCurrentAddress(String value) {
         currentAddress.setValue(value);
+        return this;
+
     }
 }

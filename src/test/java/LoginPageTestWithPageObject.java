@@ -32,16 +32,15 @@ public class LoginPageTestWithPageObject {
         String currentAddress = "Bogdanovicha 6";
 
         LoginPage loginPage = new LoginPage();
-        loginPage.openPage();
-
-        loginPage.setFirstNameInput(firstName);
-        loginPage.setLastNameInput(lastName);
-        loginPage.setUserEmailInput(userEmail);
-        loginPage.setGenterWrapperInput(genterWrapper);
-        loginPage.setUserNumberInput(userNumber);
-        loginPage.setHobbiesWrapperInput(hobbiesWrapper);
-        loginPage.setUploadPicture(file);
-        loginPage.setCurrentAddress(currentAddress);
+        loginPage.openPage()
+                .setFirstNameInput(firstName)
+                .setLastNameInput(lastName)
+                .setUserEmailInput(userEmail)
+                .setGenterWrapperInput(genterWrapper)
+                .setUserNumberInput(userNumber)
+                .setHobbiesWrapperInput(hobbiesWrapper)
+                .setUploadPicture(file)
+                .setCurrentAddress(currentAddress);
 
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption("July");
