@@ -16,14 +16,16 @@ public class LoginPageTestWithPageObject extends TestBase {
     @Tags({@Tag("UI_TEST")})
     void successfulLoginPage() {
 
-        String firstName = "Denis";
-        String lastName = "Rudovich";
-        String userEmail = "d.rudovich@gmail.com";
+        TestBase data = new TestBase();
+
+        String firstName = data.firstName;
+        String lastName = data.lastName;
+        String userEmail = data.userEmail;
         String genterWrapper = "Other";
-        String userNumber = "375445856568";
+        String userNumber = data.userNumber;
         String hobbiesWrapper = "Sports";
         File file = new File("src/test/resources/IMG_8298.jpg");
-        String currentAddress = "Bogdanovicha 6";
+        String currentAddress = data.currentAddress;
 
         LoginPage loginPage = new LoginPage();
         loginPage.openPage()
