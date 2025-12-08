@@ -11,6 +11,7 @@ public class TestBase {
         Configuration.browserSize = "1920x1080";
     }
 
+    //added Java Faker
     Faker faker = new Faker();
 
     String firstName = faker.name().firstName();
