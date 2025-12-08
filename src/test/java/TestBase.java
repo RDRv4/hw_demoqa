@@ -12,6 +12,7 @@ public class TestBase {
     }
 
     //added Java Faker
+    //added Java Faker2
     Faker faker = new Faker();
 
     String firstName = faker.name().firstName();
