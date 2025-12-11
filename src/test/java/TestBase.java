@@ -1,5 +1,7 @@
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import com.github.javafaker.Faker;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeAll;
 
 public class TestBase {
@@ -9,10 +11,10 @@ public class TestBase {
     static void beforeAll() {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
+
+        SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
-    //added Java Faker
-    //added Java Faker2
     Faker faker = new Faker();
 
     String firstName = faker.name().firstName();
