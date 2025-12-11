@@ -14,7 +14,7 @@ public class LoginPageTestWithPageObject extends TestBase {
     //@Disabled
     @DisplayName("Test for Login Page")
     @Test
-    @Tags({@Tag("UI_TEST")})
+    @Tags({@Tag("UI_TEST_WITH_ALLURE")})
     void successfulLoginPage() {
 
         TestBase data = new TestBase();

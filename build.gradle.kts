@@ -38,3 +38,9 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
+
+tasks.register<Test>("simple_test") {
+    useJUnitPlatform {
+        includeTags("UI_TEST_WITH_ALLURE")
+    }
+}
