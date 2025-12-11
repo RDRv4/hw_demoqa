@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="LoginPageTestWithPageObject" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-12-11T17:37:36.809Z" hostname="DESKTOP-AI8TUE5" time="15.399">
+  <properties/>
+  <testcase name="Test for Login Page" classname="LoginPageTestWithPageObject" time="15.399"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[дек. 11, 2025 8:37:43 PM org.openqa.selenium.devtools.DevToolsProvider getImplementation
+INFO: WebDriver augmented with DevTools interface; connection will not be verified until first use.
+]]></system-err>
+</testsuite>
