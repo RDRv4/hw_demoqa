@@ -11,7 +11,6 @@ import static io.qameta.allure.Allure.step;
 public class LoginPageTestWithPageObject extends TestBase {
 
 
-    //@Disabled
     @DisplayName("Test for Login Page")
     @Test
     @Tags({@Tag("UI_TEST_WITH_ALLURE")})
