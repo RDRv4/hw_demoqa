@@ -3,6 +3,10 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import com.github.javafaker.Faker;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeAll;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class TestBase {
 
@@ -13,6 +17,17 @@ public class TestBase {
         Configuration.browserSize = "1920x1080";
 
         SelenideLogger.addListener("allure", new AllureSelenide());
+
+        Configuration.browser = "chrome";
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+
+        ChromeOptions options = new ChromeOptions();
+        Map<String, Object> selenoidOptions = new HashMap<>();
+        selenoidOptions.put("enableVNC", true);
+        selenoidOptions.put("enableVideo", true);
+
+        options.setCapability("selenoid:options", selenoidOptions);
+        Configuration.browserCapabilities = options;
     }
 
     Faker faker = new Faker();

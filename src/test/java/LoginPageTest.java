@@ -1,8 +1,12 @@
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
@@ -14,6 +18,18 @@ public class LoginPageTest {
     static void beforeAll() {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
+
+        Configuration.browser = "chrome";
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+
+        ChromeOptions options = new ChromeOptions();
+        Map<String, Object> selenoidOptions = new HashMap<>();
+        selenoidOptions.put("enableVNC", true);
+        selenoidOptions.put("enableVideo", false);
+
+        options.setCapability("selenoid:options", selenoidOptions);
+        Configuration.browserCapabilities = options;
+
     }
 
     @Test
